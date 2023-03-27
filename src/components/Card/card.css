@@ -1,0 +1,24 @@
+.card {
+  --spacing: 20px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: calc(100% - var(--spacing));
+  margin-left: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+.card-top {
+  width: 100%;
+  height: 307px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px;
+}

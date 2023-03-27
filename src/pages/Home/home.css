@@ -1,0 +1,6 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-bottom: 3rem;
+  /* margin-left: -20px; */
+}

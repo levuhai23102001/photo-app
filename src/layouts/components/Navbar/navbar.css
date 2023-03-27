@@ -1,0 +1,19 @@
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 0 30px;
+  margin-bottom: 30px;
+}
+
+ul > li > a.active {
+  color: #ff3377;
+}

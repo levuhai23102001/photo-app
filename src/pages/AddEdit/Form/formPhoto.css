@@ -1,0 +1,7 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: unset;
+  flex-direction: column;
+  gap: 50px 0;
+}
