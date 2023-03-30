@@ -1,6 +1,10 @@
 ✨ BASIC PHOTOGRAPHY APPLICATION - REACTJS & REDUX/REDUX TOOLKIT ✨
 
 Hi! I'm Le Vu Hai aka M1LKY.
+Contact me: 
+  - Fb: https://www.facebook.com/Milky2310/
+  - Instagram: https://www.instagram.com/__.m1lkyy.__/
+  - Twitter: https://twitter.com/iah_le
 
 Main Feature:
   - Add new photo
