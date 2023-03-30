@@ -1,8 +1,8 @@
 import React from "react";
 import FormPhoto from "./Form/FormPhoto";
-import { useDispatch } from "react-redux";
-import { addNewPhoto } from "../../actions/photo";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewPhoto, editPhoto } from "../../actions/photo";
+import { useNavigate, useParams } from "react-router-dom";
 
 const randomId = () => {
   return 1000 + Math.trunc(Math.random() * 9000);
@@ -11,25 +11,42 @@ const randomId = () => {
 const AddPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { photoId } = useParams();
+  const idAddMode = !photoId;
+  const editedPhoto = useSelector((state) => {
+    const foundPhoto = state.photo.photos.find((x) => x.id === +photoId);
+    console.log("edited:", state.photo.photos, photoId, foundPhoto);
+    return foundPhoto;
+  });
 
   const handleSubmitForm = (values) => {
-    console.log("Form Submit:", values);
-    const newId = randomId();
-    const newPhoto = {
-      id: newId,
-      values,
-    };
-
-    const action = addNewPhoto(newPhoto);
-    console.log(action);
-    dispatch(action);
-
+    if (idAddMode) {
+      const newId = randomId();
+      const newPhoto = {
+        id: newId,
+        ...values,
+      };
+      const action = addNewPhoto(newPhoto);
+      console.log(action);
+      dispatch(action);
+    } else {
+      const action = editPhoto(values);
+      console.log(action);
+      dispatch(action);
+    }
     navigate("/");
   };
 
+  const initialValues = idAddMode
+    ? {
+        title: "",
+        categoryId: null,
+      }
+    : editedPhoto;
+
   return (
     <>
-      <FormPhoto onSubmit={handleSubmitForm} />
+      <FormPhoto initialValues={initialValues} onSubmit={handleSubmitForm} />
     </>
   );
 };

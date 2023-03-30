@@ -14,7 +14,21 @@ const photoReducer = (state = initialState, action) => {
       };
     }
     case "EDIT_PHOTO": {
-      return state;
+      const newPhotoList = [...state.photos];
+      const newPhoto = action.payload;
+      console.log(newPhoto);
+      const photoIndex = newPhotoList.findIndex(
+        (photo) => photo.id === newPhoto.id
+      );
+
+      if (photoIndex >= 0) {
+        newPhotoList[photoIndex] = newPhoto;
+      }
+      localStorage.setItem("photo-list", JSON.stringify(newPhotoList));
+      return {
+        ...state,
+        photos: newPhotoList,
+      };
     }
     case "REMOVE_PHOTO": {
       const newPhotoList = [...state.photos];

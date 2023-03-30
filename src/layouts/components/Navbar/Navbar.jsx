@@ -12,9 +12,6 @@ const Navbar = () => {
         <li className="nav-item">
           <NavLink to="/add">Add Page</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink to="/edit">Edit Page</NavLink>
-        </li>
       </ul>
     </>
   );

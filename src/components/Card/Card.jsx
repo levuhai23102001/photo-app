@@ -1,6 +1,6 @@
 import React from "react";
 import "./card.css";
-const Card = ({ imgURL, title, category, onRemoveImg }) => {
+const Card = ({ imgURL, title, category, onRemoveImg, onEditImg }) => {
   return (
     <>
       <div className="card">
@@ -9,6 +9,9 @@ const Card = ({ imgURL, title, category, onRemoveImg }) => {
           <div className="overlay">
             <div className="remove-btn" onClick={onRemoveImg}>
               Remove
+            </div>
+            <div className="remove-btn" onClick={onEditImg}>
+              Edit
             </div>
           </div>
         </div>

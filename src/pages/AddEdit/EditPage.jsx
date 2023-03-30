@@ -1,7 +1,12 @@
 import React from "react";
+import FormPhoto from "./Form/FormPhoto";
 
 const EditPage = () => {
-  return <div>EditPage</div>;
+  return (
+    <>
+      <FormPhoto />
+    </>
+  );
 };
 
 export default EditPage;

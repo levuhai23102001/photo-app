@@ -1,7 +1,7 @@
 const routes = {
   home: "/",
   add: "/add",
-  edit: "/edit/123",
+  edit: "/:photoId",
 };
 
 export default routes;

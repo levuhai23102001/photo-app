@@ -3,16 +3,24 @@ import React from "react";
 import Card from "../../components/Card";
 import "./home.css";
 import { removePhoto } from "../../actions/photo";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const photos = useSelector((state) => state.photo.photos);
   console.log(photos);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const handleRemoveImg = (photo) => {
     const removeImgId = photo.id;
     console.log("removeID:", removeImgId);
     const action = removePhoto(removeImgId);
     dispatch(action);
+  };
+
+  const handleEditImg = (photo) => {
+    const photoId = photo.id;
+    navigate(`/${photoId}`);
   };
 
   return (
@@ -22,8 +30,9 @@ const Home = () => {
           <Card
             key={index}
             title={photo.title}
-            imgURL={photo.values.photo.preview}
+            imgURL={photo.photo.preview}
             onRemoveImg={() => handleRemoveImg(photo)}
+            onEditImg={() => handleEditImg(photo)}
           />
         ))}
       </div>

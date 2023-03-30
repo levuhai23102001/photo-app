@@ -11,10 +11,7 @@ import { FormGroup, Button } from "reactstrap";
 import "./formPhoto.css";
 
 const FormPhoto = (props) => {
-  const initialValues = {
-    title: "",
-    categoryId: null,
-  };
+  const { initialValues } = props;
 
   return (
     <>
@@ -60,4 +57,8 @@ export default FormPhoto;
 
 FormPhoto.propTypes = {
   onsubmit: PropTypes.func,
+};
+
+FormPhoto.defaultProps = {
+  onsubmit: null,
 };
