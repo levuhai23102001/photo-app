@@ -1,7 +1,7 @@
 import React from "react";
 import FormPhoto from "./Form/FormPhoto";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewPhoto, editPhoto } from "../../actions/photo";
+import { addNewPhoto, editPhoto } from "../../redux-toolkit/photoSlice";
 import { useNavigate, useParams } from "react-router-dom";
 
 const randomId = () => {
@@ -14,8 +14,8 @@ const AddPage = () => {
   const { photoId } = useParams();
   const idAddMode = !photoId;
   const editedPhoto = useSelector((state) => {
-    const foundPhoto = state.photo.photos.find((x) => x.id === +photoId);
-    console.log("edited:", state.photo.photos, photoId, foundPhoto);
+    const foundPhoto = state.photos.photos.find((x) => x.id === +photoId);
+    console.log("edited:", state.photos.photos, photoId, foundPhoto);
     return foundPhoto;
   });
 

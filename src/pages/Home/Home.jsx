@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import Card from "../../components/Card";
 import "./home.css";
-import { removePhoto } from "../../actions/photo";
+import { removePhoto } from "../../redux-toolkit/photoSlice";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const photos = useSelector((state) => state.photo.photos);
+  const photos = useSelector((state) => state.photos.photos);
   console.log(photos);
   const dispatch = useDispatch();
 
